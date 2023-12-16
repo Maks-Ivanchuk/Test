@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Тест</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Raleway", sans-serif
+    }
+
+    body {
+      min-width: 300px;
+    }
+
+    .user-name {
+      width: 100% !important;
+    }
+
+    .bar-user-icon {
+      display: none;
+    }
+
+    .w3-blue {
+      th {
+        width: 33%;
+        vertical-align: middle;
+      }
+    }
+
+    .w3-main {
+      margin-left: 300px;
+      margin-top: 43px;
+    }
+
+    .w3-sidebar {
+      display: block !important;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 992px) {
+      .w3-sidebar {
+        width: max(20%, 100px) !important;
+        max-width: 300px;
+      }
+
+      .bar-user-name {
+        display: inline-block;
+      }
+
+      .bat-item-text {
+        display: inline-block;
+      }
+
+      .w3-main {
+        margin-left: max(20%, 100px) !important;
+      }
+    }
+
+    @media (max-width: 425px) {
+      .w3-sidebar {
+        width: 50px !important;
+      }
+
+      .bar-user-name {
+        display: none;
+      }
+
+      .bar-user-icon {
+        display: inline-block;
+      }
+
+      .bat-item-text {
+        display: none;
+      }
+
+      .w3-main {
+        margin-left: 45px !important;
+      }
+    }
+
+    input {
+      width: 80%;
+    }
+
+    #cats-facts {
+      margin-top: 20px ;
+
+      th, td {
+        text-align: center ;
+      }
+    }
+  </style>
+</head>
+<body class="w3-light-grey">
+  <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+    <span class="w3-bar-item w3-right">Logo</span>
+  </div>
+  <nav class="w3-sidebar w3-collapse w3-white" style="z-index:3" id="mySidebar"><br>
+    <div class="w3-container w3-row">
+      <div class="w3-col s8 w3-bar user-name">
+        <a class="bar-user-icon">
+          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 512.000000 512.000000"
+            preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+              <path d="M2420 5114 c-295 -38 -559 -166 -764 -372 -180 -182 -297 -398 -352 -652 -26 -119 -26 -381 0 -500 99 -460 422 -821 861 -965 325 -107 680 -77 986 81 230 119 435 327 553 562 246 489 148 1089 -241 1474 -107 106 -194 171 -310 231 -189 97 -341 136 -553 141 -80 2 -161 2 -180 0z" />
+              <path d="M2350 2223 c-491 -29 -998 -168 -1426 -393 -323 -168 -458 -277 -533 -430 -70 -143 -71 -151 -71 -812 l0 -588 2240 0 2240 0 0 588 c0 661 -1 669 -71 812 -79 162 -223 274 -584 455 -549 276 -1176 405 -1795 368z" />
+            </g>
+          </svg>
+        </a>
+        <span class="bar-user-name">Привіт, <strong>Mike</strong></span><br>
+      </div>
+    </div>
+    <hr>
+    <div class="w3-bar-block">
+      <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i><span class="bat-item-text">&nbsp;
+          link1</span></div>
+      <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-tree fa-fw"></i><span class="bat-item-text">&nbsp;
+          link2</span></div>
+      <div class="w3-bar-item w3-button w3-padding"><i class="fa fa-balance-scale fa-fw"></i><span
+          class="bat-item-text">&nbsp; link3</span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="w3-main">
+    <header class="w3-container" style="padding-top:22px">
+      <h5><b><i class="fa fa-diamond"></i> Статистика</b></h5>
+    </header>
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-container tables-container">
+        <h5>Власники котиків</h5>
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-blue">
+              <th>Ім'я <br><input type="text" id="filterName"></th>
+              <th>Прізвище <br><input type="text" id="filterLastName"></th>
+              <th>Бали <br><input type="text" id="filterPoints"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Артур</td>
+              <td>Юс</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>Жанна</td>
+              <td>Котлінска</td>
+              <td>94</td>
+            </tr>
+            <tr>
+              <td>Юлія</td>
+              <td>Корж</td>
+              <td>67</td>
+            </tr>
+            <tr>
+              <td>Богдан</td>
+              <td>Синовій</td>
+              <td>25</td>
+            </tr>
+            <tr>
+              <td>Катря</td>
+              <td>Грай</td>
+              <td>45</td>
+            </tr>
+          </tbody>
+        </table><br>
+        <button class="w3-button w3-dark-grey btn-more-info">Більше інформації &nbsp;<i class="fa fa-bug"></i></button>
+        <br>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const btnMoreInfo = document.querySelector('.btn-more-info');
+        const tableContainer = document.querySelector('.tables-container');
+
+        btnMoreInfo.addEventListener('click', () => {
+          fetch(`https://catfact.ninja/fact?max_length=50`)
+            .then((response) => response.json())
+            .then((data) => {
+              if(!tableContainer.querySelector('#cats-facts')){
+                tableContainer.insertAdjacentHTML('beforeend', `
+                  <table class="w3-table-all" id="cats-facts">
+                    <thead>
+                      <tr class="w3-blue">
+                        <th>Цікаві факти про котиків</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>${data.fact}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  `);
+              } else {
+                const catsFactsRow = document.querySelector('#cats-facts').querySelector('tbody');
+                catsFactsRow.insertAdjacentHTML('beforeend', `
+                  <tbody>
+                    <tr>
+                      <td>${data.fact}</td>
+                    </tr>
+                  </tbody>
+                `);
+              }
+            })
+          .catch((error) => {
+            console.error('факт про кота не отримано, помилка запиту:', error);
+          });
+        });
+      
+
+        $(".w3-table-all").tablesorter();
+
+        $("#filterName").on("input", function () {
+          filterTable(0, $(this).val());
+        });
+
+        $("#filterLastName").on("input", function () {
+          filterTable(1, $(this).val());
+        });
+
+        $("#filterPoints").on("input", function () {
+          filterTable(2, $(this).val());
+        });
+
+        function filterTable(columnIndex, filterValue) {
+          $(".w3-table-all tbody tr").filter(function () {
+            $(this).toggle(
+              $(this).find(`td:nth-child(${columnIndex + 1})`).text().toLowerCase().indexOf(filterValue) > -1
+            );
+          });
+        }
+      });
+    </script>
+</body>
+</html>
